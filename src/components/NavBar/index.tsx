@@ -30,12 +30,13 @@ import { useContext, useEffect, useState } from "react";
 import { Link as RouterLink, useHistory } from "react-router-dom";
 import { BotStateContext } from "../../context/BotStateContext";
 import "./index.scss";
+import { useTranslation } from "react-i18next";
 
 const NavBar = () => {
   const history = useHistory();
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const [version, setVersion] = useState<string>("");
-
+  const { t } = useTranslation();
   const botStateContext = useContext(BotStateContext);
 
   useEffect(() => {
@@ -82,10 +83,7 @@ const NavBar = () => {
         onClose={() => botStateContext.setRefreshAlert(false)}
         onClick={() => botStateContext.setRefreshAlert(false)}
       >
-        <Alert severity="error">
-          Do NOT reload/F5/refresh the "page" while the bot is RUNNING. You will have a runaway
-          program.
-        </Alert>
+        <Alert severity="error">{t("page.navbar.refresh_error")}</Alert>
       </Snackbar>
       <Toolbar variant="dense" className="navToolbar" data-tauri-drag-region>
         <IconButton
@@ -106,7 +104,7 @@ const NavBar = () => {
                 <ListItemIcon>
                   <HomeRounded />
                 </ListItemIcon>
-                <ListItemText primary="Home" />
+                <ListItemText primary={t("page.common.home")} />
               </ListItem>
               <Divider />
             </RouterLink>
@@ -115,7 +113,7 @@ const NavBar = () => {
                 <ListItemIcon>
                   <Settings />
                 </ListItemIcon>
-                <ListItemText primary="Settings" />
+                <ListItemText primary={t("page.common.settings")} />
               </ListItem>
               <Divider />
             </RouterLink>
@@ -124,7 +122,7 @@ const NavBar = () => {
                 <ListItemIcon>
                   <SettingsSuggest />
                 </ListItemIcon>
-                <ListItemText primary="Extra Settings" />
+                <ListItemText primary={t("page.common.extra_settings")} />
               </ListItem>
               <Divider />
             </RouterLink>
@@ -133,7 +131,7 @@ const NavBar = () => {
                 <ListItemIcon>
                   <WatchLaterIcon />
                 </ListItemIcon>
-                <ListItemText primary="Adjustments" />
+                <ListItemText primary={t("page.common.adjustments")} />
               </ListItem>
               <Divider />
             </RouterLink>
@@ -160,7 +158,7 @@ const NavBar = () => {
               color: "#FFEB3B",
             }}
           >
-            Status: Running
+            {t("page.common.status")}: {t("page.common.running")}
           </Typography>
         ) : botStateContext.readyStatus ? (
           <Typography
@@ -173,7 +171,7 @@ const NavBar = () => {
               color: "#76ff03",
             }}
           >
-            Status: Ready
+            {t("page.common.status")}: {t("page.common.ready")}
           </Typography>
         ) : (
           <Typography
@@ -186,7 +184,7 @@ const NavBar = () => {
               color: "red",
             }}
           >
-            Status: Not Ready
+            {t("page.common.status")}: {t("page.common.not_ready")}
           </Typography>
         )}
         <ButtonGroup variant="outlined" className="navGroup">

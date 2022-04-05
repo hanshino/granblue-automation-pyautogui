@@ -1,0 +1,46 @@
+{
+  "page": {
+    "common": {
+      "home": "Home",
+      "settings": "Settings",
+      "extra_settings": "Extra Settings",
+      "adjustments": "Adjustments",
+      "start": "Start",
+      "stop": "Stop",
+      "status": "Status",
+      "running": "Running",
+      "not_running": "Not running",
+      "ready": "Ready",
+      "not_ready": "Not Ready"
+    },
+    "home": {
+      "initial_message": "****************************************\nWelcome to Granblue Automation!\n****************************************\nInstructions\n----------------\nNote: The START button is disabled until the following steps are followed through.\n    1. Have your game window and the Bottom Menu visible. Set the game window size set to the second \"notch\".     2. Go to the Settings Page of the bot and fill out the sections until the status at the top says \"Ready\".    3. You can now head back to the Home Page of the bot and click START.    \nWarning: Do not refresh/F5 the program's \"page\" while the bot process is running. Otherwise in order to stop it, you will need to kill it by completely exiting the program.\n****************************************\n"
+    },
+    "navbar": {
+      "refresh_error": "Do NOT reload/F5/refresh the \"page\" while the bot is RUNNING. You will have a runaway program."
+    },
+    "settings": {
+      "combat_script": "Combat Script",
+      "combat_script_helper": "Select a Combat Script",
+      "combat_script_helper_alternative": "Select a Combat Script (alternative method)",
+      "combat_script_none_selected": "None Selected",
+      "farming_mode": "Farming Mode",
+      "farming_mode_helper": "Please select the Farming Mode",
+      "generic_helper": "Selecting this will repeat the current mission on the screen until it finishes the required number of runs. Note that Generic does not provide any navigation.\nIt is required that the bot starts on either the Combat screen with the \"Attack\" button visible, the Loot Collection screen with the \"Play Again\" button visible, or the Coop Room screen with the \"Start\" button visible and party already selected.",
+      "select_item": "Select Item",
+      "select_item_helper": "Please select/search the Item to farm",
+      "select_mission": "Select Mission",
+      "select_mission_helper": "Please select the Mission",
+      "select_items_to_farm": "# of Items",
+      "select_items_to_farm_helper": "Please select the amount of Items to farm",
+      "select_summon": "Select Summons",
+      "select_support_summons": "Select Support Summon(s)",
+      "select_group": "Group #",
+      "select_group_helper": "From 1 to 7",
+      "select_party": "Party #",
+      "select_party_helper": "From 1 to 6",
+      "enable_debug_mode": "Enable Debug Mode",
+      "enable_debug_mode_helper": "Enables debugging messages to show up in the log"
+    }
+  }
+}

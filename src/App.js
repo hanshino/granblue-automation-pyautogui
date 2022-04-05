@@ -53,7 +53,10 @@ function App() {
           <NavBar />
           <Start />
           <Switch>
-            <Route path="/" exact>
+            <Route path="/settings" component={Settings} />
+            <Route path="/extrasettings" component={ExtraSettings} />
+            <Route path="/adjustments" component={Adjustments} />
+            <Route path="*">
               {updateAvailable ? (
                 <Snackbar
                   anchorOrigin={{ vertical: "top", horizontal: "center" }}
@@ -86,17 +89,7 @@ function App() {
                   onClose={handleClose}
                 ></Snackbar>
               ) : null}
-
               <Home />
-            </Route>
-            <Route path="/settings" exact>
-              <Settings />
-            </Route>
-            <Route path="/extrasettings" exact>
-              <ExtraSettings />
-            </Route>
-            <Route path="/adjustments" exact>
-              <Adjustments />
             </Route>
           </Switch>
         </MessageLogProvider>

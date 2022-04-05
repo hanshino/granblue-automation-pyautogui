@@ -3,19 +3,17 @@ import { Box } from "@mui/system";
 import { useContext, useEffect, useRef } from "react";
 import { BotStateContext } from "../../context/BotStateContext";
 import { MessageLogContext } from "../../context/MessageLogContext";
+import { useTranslation } from "react-i18next";
 import "./index.scss";
 
 const Home = () => {
   const botStateContext = useContext(BotStateContext);
   const messageLogContext = useContext(MessageLogContext);
+  const { t } = useTranslation();
 
   const msgRef = useRef<HTMLDivElement | null>(null);
 
-  const initialMessage = `****************************************\nWelcome to Granblue Automation!\n****************************************\nInstructions\n----------------\nNote: The START button is disabled until the following steps are followed through.\n
-    1. Have your game window and the Bottom Menu visible. Set the game window size set to the second "notch". 
-    2. Go to the Settings Page of the bot and fill out the sections until the status at the top says "Ready".
-    3. You can now head back to the Home Page of the bot and click START.
-    \nWarning: Do not refresh/F5 the program's "page" while the bot process is running. Otherwise in order to stop it, you will need to kill it by completely exiting the program.\n****************************************\n`;
+  const initialMessage = t("page.home.initial_message");
 
   // Scroll to the bottom of the message log window when new messages are added.
   useEffect(() => {
@@ -59,7 +57,7 @@ const Home = () => {
             <div className="rightContainer">
               {botStateContext.isBotRunning ? (
                 <Button color="error" variant="contained" onClick={handleStop}>
-                  Stop
+                  {t("page.home.stop")}
                 </Button>
               ) : (
                 <Button
@@ -67,7 +65,7 @@ const Home = () => {
                   variant="contained"
                   onClick={handleStart}
                 >
-                  {botStateContext.readyStatus ? "Start" : "Not Ready"}
+                  {botStateContext.readyStatus ? t("page.home.start") : t("page.common.not_ready")}
                 </Button>
               )}
             </div>

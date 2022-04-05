@@ -28,6 +28,7 @@ import { readTextFile } from "@tauri-apps/api/fs";
 import { open, DialogFilter } from "@tauri-apps/api/dialog";
 import data from "../../data/data.json";
 import "./index.scss";
+import { useTranslation } from "react-i18next";
 
 // Custom input component for combat script file selection.
 const Input = styled("input")({
@@ -38,6 +39,7 @@ const Settings = () => {
   const [itemList, setItemList] = useState<string[]>([]);
   const [missionList, setMissionList] = useState<string[]>([]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const { t } = useTranslation();
 
   const botStateContext = useContext(BotStateContext);
 
@@ -341,15 +343,15 @@ const Settings = () => {
                 />
                 <TextField
                   variant="filled"
-                  label="Combat Script"
+                  label={t("page.settings.combat_script")}
                   value={
                     botStateContext.settings.game.combatScriptName !== ""
                       ? botStateContext.settings.game.combatScriptName
-                      : "None Selected"
+                      : t("page.settings.combat_script_none_selected")
                   }
                   inputProps={{ readOnly: true }}
                   InputLabelProps={{ shrink: true }}
-                  helperText="Select a Combat Script"
+                  helperText={t("page.settings.combat_script_helper")}
                   onClick={() => inputRef.current?.click()}
                   fullWidth
                 />
@@ -357,15 +359,15 @@ const Settings = () => {
             ) : (
               <TextField
                 variant="filled"
-                label="Combat Script"
+                label={t("page.settings.combat_script")}
                 value={
                   botStateContext.settings.game.combatScriptName !== ""
                     ? botStateContext.settings.game.combatScriptName
-                    : "None Selected"
+                    : t("page.settings.combat_script_none_selected")
                 }
                 inputProps={{ readOnly: true }}
                 InputLabelProps={{ shrink: true }}
-                helperText="Select a Combat Script (alternative method)"
+                helperText={t("page.settings.combat_script_helper_alternative")}
                 onClick={() => loadCombatScriptAlternative()}
                 fullWidth
               />
@@ -381,7 +383,7 @@ const Settings = () => {
           {/* Select Farming Mode */}
           <TextField
             select
-            label="Farming Mode"
+            label={t("page.settings.farming_mode")}
             variant="filled"
             value={botStateContext.settings.game.farmingMode}
             onChange={e => {
@@ -418,7 +420,7 @@ const Settings = () => {
                 },
               });
             }}
-            helperText="Please select the Farming Mode"
+            helperText={t("page.settings.farming_mode_helper")}
           >
             {farmingModes.map(mode => (
               <MenuItem key={mode} value={mode}>
@@ -431,9 +433,7 @@ const Settings = () => {
             <div>
               <Divider />
               <Typography variant="subtitle2" component="p" color="text.secondary">
-                {`Selecting this will repeat the current mission on the screen until it finishes the required number of runs. Note that Generic does not provide any navigation.
-                                
-                                It is required that the bot starts on either the Combat screen with the "Attack" button visible, the Loot Collection screen with the "Play Again" button visible, or the Coop Room screen with the "Start" button visible and party already selected.`}
+                {t("page.settings.generic_helper")}
               </Typography>
               <Divider />
             </div>
@@ -619,9 +619,9 @@ const Settings = () => {
             renderInput={params => (
               <TextField
                 {...params}
-                label="Select Item"
+                label={t("page.settings.select_item")}
                 variant="filled"
-                helperText="Please select/search the Item to farm"
+                helperText={t("page.settings.select_item_helper")}
               />
             )}
             renderOption={(props, option, { inputValue }) => {
@@ -669,9 +669,9 @@ const Settings = () => {
               renderInput={params => (
                 <TextField
                   {...params}
-                  label="Select Mission"
+                  label={t("page.settings.select_mission")}
                   variant="filled"
-                  helperText="Please select the Mission"
+                  helperText={t("page.settings.select_mission_helper")}
                 />
               )}
               renderOption={(props, option, { inputValue }) => {
@@ -695,7 +695,7 @@ const Settings = () => {
 
           {/* Select # of Items to farm */}
           <TextField
-            label="# of Items"
+            label={t("page.settings.select_items_to_farm")}
             type="number"
             variant="filled"
             value={botStateContext.settings.game.itemAmount}
@@ -709,7 +709,7 @@ const Settings = () => {
               })
             }
             inputProps={{ min: 1 }}
-            helperText="Please select the amount of Items to farm"
+            helperText={t("page.settings.select_items_to_farm_helper")}
           />
 
           {/* Select Summon(s) */}
@@ -722,11 +722,11 @@ const Settings = () => {
               botStateContext.settings.game.farmingMode === "Arcarum Sandbox"
             }
           >
-            Select Summons
+            {t("page.settings.select_summon")}
           </Button>
           <Modal className="supportSummonModal" open={isModalOpen} onClose={handleModalClose}>
             <div>
-              <Typography>Select Support Summon(s)</Typography>
+              <Typography>{t("page.settings.select_support_summons")}</Typography>
               <Box id="supportSummonContainer" className="supportSummonContainer">
                 <TransferList isNightmare={false} />
               </Box>
@@ -738,7 +738,7 @@ const Settings = () => {
             <Grid container justifyContent="center" alignItems="center">
               <Grid item id="gridItemGroup" xs={4}>
                 <TextField
-                  label="Group #"
+                  label={t("page.settings.select_group")}
                   variant="filled"
                   type="number"
                   error={
@@ -756,14 +756,14 @@ const Settings = () => {
                       },
                     })
                   }
-                  helperText="From 1 to 7"
+                  helperText={t("page.settings.select_group_helper")}
                   className="settingsTextfield"
                 />
               </Grid>
               <Grid item md></Grid>
               <Grid item id="gridItemParty" xs={4}>
                 <TextField
-                  label="Party #"
+                  label={t("page.settings.select_party")}
                   variant="filled"
                   type="number"
                   error={
@@ -781,7 +781,7 @@ const Settings = () => {
                       },
                     })
                   }
-                  helperText="From 1 to 6"
+                  helperText={t("page.settings.select_party_helper")}
                   className="settingsTextfield"
                 />
               </Grid>
@@ -811,9 +811,9 @@ const Settings = () => {
                   checked={botStateContext.settings.game.debugMode}
                 />
               }
-              label="Enable Debug Mode"
+              label={t("page.settings.enable_debug_mode")}
             />
-            <FormHelperText>Enables debugging messages to show up in the log</FormHelperText>
+            <FormHelperText>{t("page.settings.enable_debug_mode_helper")}</FormHelperText>
           </FormGroup>
         </Stack>
       </Box>

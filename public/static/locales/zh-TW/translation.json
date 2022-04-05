@@ -1,0 +1,46 @@
+{
+  "page": {
+    "common": {
+      "home": "首頁",
+      "settings": "設定",
+      "extra_settings": "額外設定",
+      "adjustments": "調整",
+      "start": "開始",
+      "stop": "停止",
+      "status": "狀態",
+      "running": "運行中",
+      "not_running": "未運行",
+      "ready": "已就緒",
+      "not_ready": "尚未就緒"
+    },
+    "home": {
+      "initial_message": "****************************************\n歡迎使用自動化碧藍腳本！\n****************************************\n說明\n----------------\n備註: 在完成以下步驟之前，將無法點擊開始鍵\n    1. 請確保遊戲視窗以及遊戲底下的選單列表為可辨識狀態。 並且將遊戲視窗設定成第二尺寸。\n    2. 請點選左上進入設定頁，並且填寫資訊直到頂端狀態變為 \"預備\"\n    3. 接下來可以回到主頁，並且點選開始。   \n注意: 請勿在程式進行中的時候 重整或點選 F5 否則將必須將整個程式關掉重啟。\n****************************************\n"
+    },
+    "navbar": {
+      "refresh_error": "請勿在程式進行中的時候 重整或點選 F5 否則將必須將整個程式關掉重啟。"
+    },
+    "settings": {
+      "combat_script": "戰鬥腳本",
+      "combat_script_helper": "請選擇戰鬥腳本",
+      "combat_script_helper_alternative": "請選擇戰鬥腳本",
+      "combat_script_none_selected": "尚未選擇",
+      "farming_mode": "執行模式",
+      "farming_mode_helper": "請選擇執行模式",
+      "generic_helper": "Selecting this will repeat the current mission on the screen until it finishes the required number of runs. Note that Generic does not provide any navigation.\nIt is required that the bot starts on either the Combat screen with the \"Attack\" button visible, the Loot Collection screen with the \"Play Again\" button visible, or the Coop Room screen with the \"Start\" button visible and party already selected.",
+      "select_item": "選擇物品",
+      "select_item_helper": "請 選擇 或 搜尋 要農的物品",
+      "select_mission": "選擇任務",
+      "select_mission_helper": "請選擇要農的任務",
+      "select_items_to_farm": "次數(個數)",
+      "select_items_to_farm_helper": "請輸入要農的物品數量或執行次數",
+      "select_summon": "選擇召喚",
+      "select_support_summons": "選擇支援召喚",
+      "select_group": "組別 #",
+      "select_group_helper": "1~7",
+      "select_party": "隊伍 #",
+      "select_party_helper": "1~6",
+      "enable_debug_mode": "啟用除錯模式",
+      "enable_debug_mode_helper": "啟用除錯模式將會把資訊輸出到控制台"
+    }
+  }
+}
