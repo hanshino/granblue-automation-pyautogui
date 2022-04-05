@@ -15,8 +15,18 @@
             "active": true,
             "targets": "all",
             "identifier": "com.steve1316.dev",
-            "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
-            "resources": ["backend/", "images/", "scripts/"],
+            "icon": [
+                "icons/32x32.png",
+                "icons/128x128.png",
+                "icons/128x128@2x.png",
+                "icons/icon.icns",
+                "icons/icon.ico"
+            ],
+            "resources": [
+                "backend/",
+                "images/",
+                "scripts/"
+            ],
             "externalBin": [],
             "copyright": "",
             "category": "DeveloperTool",
@@ -41,8 +51,10 @@
             }
         },
         "updater": {
-            "active": true,
-            "endpoints": ["https://raw.githubusercontent.com/steve1316/granblue-automation-pyautogui/main/src-tauri/update.json"],
+            "active": false,
+            "endpoints": [
+                "https://raw.githubusercontent.com/steve1316/granblue-automation-pyautogui/main/src-tauri/update.json"
+            ],
             "dialog": false
         },
         "allowlist": {
